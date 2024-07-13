@@ -1,4 +1,4 @@
-name: 自动续时蓝天云
+name: 自动签到雨云
 
 on:
   push:
@@ -23,12 +23,10 @@ jobs:
         IFS=',' read -r -a apikeys <<< "$RAINYUN_APIKEYS"
 
         for apikey in "${apikeys[@]}"; do
-          echo "Processing API key: $apikey"
-          response=$(curl --location --request POST 'https://api.v2.rainyun.com/user/reward/tasks' \
-                          --header "x-api-key: $apikey" \
-                          --header 'Content-Type: application/json' \
-                          --data-raw '{
-                            "task_name": "每日签到"
-                          }')
-          echo "内容返回: $response"
+          response=$(curl -s --location --request POST 'https://api.v2.rainyun.com/user/reward/tasks' --header "x-api-key: $apikey" --header 'Content-Type: application/json' --data-raw '{"task_name": "每日签到"}')
+          if echo "$response" | grep -q '{"code":200,"data":"ok"}'; then
+            echo "签到成功"
+          else
+            echo "内容返回 : $response"
+          fi
         done
