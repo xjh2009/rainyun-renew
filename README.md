@@ -26,5 +26,6 @@ APIKEY1,APIKEY2,APIKEY3
 每日北京时间6点自动续费<br>
 
 ## 相关项目
-[海绵联机自动签到](https://github.com/xjh2009/hmmc-renew)
-[蓝天云自动续费](https://github.com/xjh2009/lty-renew)
+[自动签到/续费合集](https://github.com/xjh2009/all-sign-renew)<br>
+[海绵联机自动签到](https://github.com/xjh2009/hmmc-renew)<br>
+[蓝天云自动续费](https://github.com/xjh2009/lty-renew)<br>
